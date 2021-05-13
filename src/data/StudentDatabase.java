@@ -7,9 +7,13 @@ import java.util.function.Supplier;
 
 public class StudentDatabase {
 
+    public static Supplier<Student> studentSupplier = () ->  {
+        return new Student("Adam", 2, 4.0, "male", Arrays.asList("swimming", "basketball", "volleyball"));
+    };
+
     public static Optional<Student> getOptionalStudent() {
 
-        Student student = studentInstance();
+        Student student = new Student();
         Bike bike = new Bike("Client34", "Client34");
         student.setBike(Optional.of(bike));
         return Optional.of(student);
@@ -40,11 +44,6 @@ public class StudentDatabase {
 
         List<Student> students = Arrays.asList(student1, student2, student3, student4, student5, student6);
         return students;
-    }
-
-    private static Student studentInstance() {
-        Student student = new Student("Adam", 2, 4.0, "male", Arrays.asList("swimming", "basketball", "volleyball"));
-        return student;
     }
 
 }
